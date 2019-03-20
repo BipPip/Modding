@@ -1,0 +1,18 @@
+
+//Items
+item.ruby.name=Ruby
+item.master_sword.name=Master Sword
+
+
+
+//Blocks
+tile.marc_block.name=Block of Marc
+tile.colton_block.name=Block of Colton
+tile.josuke_block.name=Josuke Block
+tile.koichi_block.name=Koichi Block
+
+
+//Entities
+entity.giozombie.name=Zombie Gio
+entity.turtle.name=Turtle
+entity.rat.name=Rat

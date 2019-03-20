@@ -1,0 +1,16 @@
+{
+    "entity.rat.hurt":
+    {
+        "category": "entity",
+        "subtitle": "entity.rat.hurt",
+        "sounds": [{"name": "fm:entity/rat/hurt", "stream": true}]
+    },
+    
+     "entity.rat.death":
+    {
+        "category": "entity",
+        "subtitle": "entity.rat.death",
+        "sounds": [{"name": "fm:entity/rat/death", "stream": true}]
+    }
+    
+}
