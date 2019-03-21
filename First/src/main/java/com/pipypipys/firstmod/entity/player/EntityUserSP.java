@@ -5,6 +5,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.stats.RecipeBook;
 import net.minecraft.stats.StatisticsManager;
+import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 
 public class EntityUserSP extends EntityPlayerSP {
@@ -18,4 +19,14 @@ public class EntityUserSP extends EntityPlayerSP {
 		
 	}
 
+	
+	@Override
+	public void setGameType(GameType gameType) {
+		
+		System.out.println(this.capabilities);
+		
+		
+		
+	}
+	
 }

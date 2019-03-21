@@ -12,6 +12,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -34,7 +36,7 @@ public class EventHandler {
 	@SubscribeEvent
 	public static void onKeyInput(InputEvent.KeyInputEvent event) {
 		
-		EntityPlayerSP player = Minecraft.getMinecraft().player;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 	
 		
 		
@@ -43,27 +45,33 @@ public class EventHandler {
 		boolean ability1 = KeyBindings.ability1.isKeyDown();
 		
 		
+		
+		
+		
 		//System.out.println(player.capabilities.disableDamage);
+		System.out.println(player.isCreative());
+		//System.out.println(abilities.isCreative());
 		
 		if (ability1) {
 			
 			//System.out.println(player.getLookVec());
 			//player.setLocationAndAngles(player.posX, player.posY, player.posZ + 1, player.rotationYaw, player.rotationPitch);
-			
 			//player.addPotionEffect(new PotionEffect(Potion.getPotionById(14), 300, 1));
 			if (!isInvisible) {
 			player.setInvisible(true);
 			
-			/*
-			 * player.capabilities.disableDamage = true;
-			player.capabilities.isCreativeMode = true;
-			player.capabilities.isFlying = true;
-			 */
 			
-			player.setGameType(GameType.CREATIVE);
+			//player.capabilities.disableDamage = true;
+			//player.capabilities.isCreativeMode = true;
+			//player.capabilities.isFlying = true;
+			 
 			
 			
-			System.out.println(player.isCreative());
+			GameType abilities = GameType.CREATIVE;
+			abilities.configurePlayerCapabilities(player.capabilities);
+			
+			
+			
 			
 			isInvisible = true;
 			
@@ -77,7 +85,9 @@ public class EventHandler {
 				player.capabilities.isFlying = false;
 				*/
 				
-				//player.setGameType(GameType.SURVIVAL);
+				
+				GameType abilities = GameType.SURVIVAL;
+				abilities.configurePlayerCapabilities(player.capabilities);
 				
 				isInvisible = false;
 				}
