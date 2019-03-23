@@ -45,7 +45,7 @@ public class KeyBindings {
 
       // key code 24 ("O", LWJGL constant: Keyboard.KEY_O)
 
-	  ability1 = new KeyBinding("Ability 1", Keyboard.KEY_NUMPAD0, "FirstMod");
+	  ability1 = new KeyBinding("key.firstMod.ability1", Keyboard.KEY_NUMPAD0, "key.categories.firstMod");
 
       // Define the "pong" binding, with (unlocalized) name "key.pong" and
 
@@ -53,7 +53,7 @@ public class KeyBindings {
 
       // key code 25 ("P", LWJGL constant: Keyboard.KEY_P)
 
-	  ability2 = new KeyBinding("Ability 2", Keyboard.KEY_NUMPAD1, "FirstMod");
+	  ability2 = new KeyBinding("key.firstMod.ability2", Keyboard.KEY_NUMPAD1, "key.categories.firstMod");
 
 
 
@@ -68,9 +68,7 @@ public class KeyBindings {
       
   }
 
-public ArrayList<KeyBinding> getKeyBindings() {
-	return KeyBindings;
-}
+
 
 
 

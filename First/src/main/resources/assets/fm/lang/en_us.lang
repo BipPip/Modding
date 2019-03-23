@@ -16,3 +16,10 @@ tile.koichi_block.name=Koichi Block
 entity.giozombie.name=Zombie Gio
 entity.turtle.name=Turtle
 entity.rat.name=Rat
+
+
+//Key Bindings
+key.categories.firstMod=First Mod
+
+key.firstMod.ability1=Ability 1
+key.firstMod.ability2=Ability 2
