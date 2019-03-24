@@ -2,6 +2,9 @@ package com.pipypipys.firstmod;
 
 import org.lwjgl.opengl.GL11;
 
+import com.pipypipys.firstmod.capabilities.CapabilityHandler;
+import com.pipypipys.firstmod.commands.ChangeClassCommand;
+import com.pipypipys.firstmod.init.ModCapabilities;
 import com.pipypipys.firstmod.network.NetworkHandler;
 import com.pipypipys.firstmod.proxy.CommonProxy;
 import com.pipypipys.firstmod.util.KeyBindings;
@@ -17,6 +20,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
@@ -33,6 +37,8 @@ public class Main {
 	{
 		 proxy.preInit();
 		 NetworkHandler.init();
+		 
+		 ModCapabilities.registerCapabilities();
 	}
 	
 	@EventHandler
@@ -45,12 +51,28 @@ public class Main {
 	 public static void postInit(FMLPostInitializationEvent event) {
 		 
 		 //MinecraftForge.EVENT_BUS.register(new EventHandler());
+		 MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		 RegistryHandler.postInitRegistries();
 		 
 		 
 	 }
 	 
 	 
+	 @EventHandler
+	 public void serverLoad(FMLServerStartingEvent event) {
+		 // Commands
+		 event.registerServerCommand(new ChangeClassCommand());
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 /*
 	 @SubscribeEvent
 	 public void renderPlayerPre(RenderPlayerEvent.Pre e) {
 		 //Change what the player looks like
@@ -65,6 +87,6 @@ public class Main {
 		 GL11.glPopMatrix();
 		 
 	 }
-	
+	*/
 	
 }

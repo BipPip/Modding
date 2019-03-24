@@ -7,11 +7,16 @@ import org.jline.utils.Log;
 
 import com.mojang.authlib.GameProfile;
 import com.sun.glass.events.KeyEvent;
+import com.pipypipys.firstmod.capabilities.IRPG;
+import com.pipypipys.firstmod.capabilities.RPGProvider;
+
+import com.pipypipys.firstmod.init.ModCapabilities;
 import com.pipypipys.firstmod.network.NetworkHandler;
 import com.pipypipys.firstmod.network.messages.MessageExplode;
 import com.pipypipys.firstmod.network.messages.MessageInvisibilityEffect;
 import com.pipypipys.firstmod.network.messages.MessageSpeedEffect;
 import com.pipypipys.firstmod.util.KeyBindings;
+import com.pipypipys.firstmod.util.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -29,23 +34,28 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 
 @EventBusSubscriber (Side.CLIENT)
 public class EventHandler {
 	
 
-	private static String PlayerClass = "rogue";
+
 	private static boolean isInvisible = false;
-	
+	public static final ResourceLocation RPG = new ResourceLocation(Reference.MOD_ID, "rpg");
 	
 
 	@SubscribeEvent
@@ -70,10 +80,14 @@ public class EventHandler {
 		
 		
 		// Class abilities
+		//EntityPlayerRPG playerRPG = (EntityPlayerRPG) playerMP;
+		
+
 		
 		
-		if(PlayerClass == "warrior") {
-	
+		System.out.println(player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass());
+		if(player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == "Warrior") {
+			
 		
 		if (ability1) {
 			
@@ -92,7 +106,7 @@ public class EventHandler {
 		}
 		
 		}
-		else if (PlayerClass == "rogue" ) {
+		else if (player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == "Rogue") {
 			
 			if (ability1) {
 				
@@ -161,5 +175,31 @@ public class EventHandler {
 		}
 	
 	}
+	
+	 
+	
+	/*
+	@SubscribeEvent
+    public void onPlayerLogsIn(PlayerLoggedInEvent event)
+    {
+        EntityPlayer player = event.player;
+        IRPG rpg = player.getCapability(RPGProvider.CAPABILTIY_RPG, null);
+
+       
+    }
+	
+	 @SubscribeEvent
+	    public void onPlayerClone(PlayerEvent.Clone event)
+	    {
+	        EntityPlayer player = event.getEntityPlayer();
+	        IRPG rpg = player.getCapability(RPGProvider.CAPABILTIY_RPG, null);
+	        IRPG oldRpg = event.getOriginal().getCapability(RPGProvider.CAPABILTIY_RPG, null);
+
+	        rpg.setPlayerClass(oldRpg.getPlayerClass());
+	    }
+	 
+	 */
+	   
+	
 	
 }

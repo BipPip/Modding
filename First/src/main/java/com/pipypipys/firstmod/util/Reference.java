@@ -29,4 +29,8 @@ public class Reference {
 	//public static final KeyBinding ABILITY_2 = keyBindings.get(1);;
 
 	
+	//Mod Settings
+	//public static String player_class;
+	
+	
 } 

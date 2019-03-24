@@ -23,3 +23,7 @@ key.categories.firstMod=First Mod
 
 key.firstMod.ability1=Ability 1
 key.firstMod.ability2=Ability 2
+
+
+//Messages
+msg.Change Class.value=Class changed.
