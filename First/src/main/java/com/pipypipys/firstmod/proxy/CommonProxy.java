@@ -1,8 +1,10 @@
 package com.pipypipys.firstmod.proxy;
 
+
 import com.pipypipys.firstmod.util.handlers.RegistryHandler;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -14,7 +16,7 @@ public class CommonProxy {
 
 	public void preInit() {
 		
-
+		 
 
 
 		
@@ -27,7 +29,16 @@ public class CommonProxy {
 		RegistryHandler.initRegistries();
 
 		
+	
+	}
+	
+	public void postInit() {
 		
+
+		
+
+		
+	
 	}
 	
 	

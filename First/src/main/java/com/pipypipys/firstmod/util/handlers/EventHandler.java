@@ -3,14 +3,12 @@ package com.pipypipys.firstmod.util.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.Port.Info;
+
 import org.jline.utils.Log;
 
 import com.mojang.authlib.GameProfile;
-import com.sun.glass.events.KeyEvent;
-import com.pipypipys.firstmod.capabilities.IRPG;
-import com.pipypipys.firstmod.capabilities.RPGProvider;
-
-import com.pipypipys.firstmod.init.ModCapabilities;
+import com.pipypipys.firstmod.client.gui.GuiMana;
 import com.pipypipys.firstmod.network.NetworkHandler;
 import com.pipypipys.firstmod.network.messages.MessageExplode;
 import com.pipypipys.firstmod.network.messages.MessageInvisibilityEffect;
@@ -39,15 +37,24 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent.Tick;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 
 @EventBusSubscriber (Side.CLIENT)
 public class EventHandler {
@@ -56,13 +63,79 @@ public class EventHandler {
 
 	private static boolean isInvisible = false;
 	public static final ResourceLocation RPG = new ResourceLocation(Reference.MOD_ID, "rpg");
+	public static boolean ability1Unclicked = true;
+	public static boolean ability2Unclicked = true;
 	
+	
+	// PLayer Data
+	 @SubscribeEvent
+	 public static void playerData(LivingEvent.LivingUpdateEvent event) {
+		 if (event.getEntityLiving() instanceof EntityPlayer) {
+			 EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			
+			 if (!player.getEntityData().hasKey("hasFired") || !player.getEntityData().getBoolean("hasFired")) {
+				 player.getEntityData().setBoolean("hasFired", true);
+				 // Example playerdata
+			 }
+			 
+			 if (!player.getEntityData().hasKey("mana")) {
+				 player.getEntityData().setDouble("mana", 300);
+				 
+				 
+			 }
+		
+			 
+			 if(player.isDead) {
+				 //Log.info("EDEEEEEEEEEEEEEAD");
+				 //player.removePotionEffect(MobEffects.SPEED);
+			 }
+			
+		 }
+	 }
+	 
+	 
+	
+		 @SubscribeEvent
+		 public static void onPlayerJoin(EntityJoinWorldEvent event) {
+			 if (event.getEntity() instanceof EntityPlayer) {
+				 EntityPlayer player = (EntityPlayer) event.getEntity();
+				 if (player.getEntityData().hasKey("mana")) {
+				 Reference.mana = player.getEntityData().getDouble("mana");
+				 //Log.info("EEEEEEEEEEEEEEEEEEEEEEEE");
+				 }
+			 }
+		 }
+	 
+	 
+	 // Player GUI Handler
+	 @SubscribeEvent
+	 public static void onRenderGui(RenderGameOverlayEvent.Post event) {
+			if (event.getType() != ElementType.EXPERIENCE) return;
+		 	new GuiMana(Minecraft.getMinecraft());
+			//Log.info("GUIIIIIIIIII");
+		}
+	
+	
+	 @SubscribeEvent
+		public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+		 
+		 if (!KeyBindings.ability1.isKeyDown()) {
+			 ability1Unclicked = true;
+		 }
+		 if (!KeyBindings.ability2.isKeyDown()) {
+			 ability2Unclicked = true;
+		 }
+		 
+		 
+		 
+	 }
+	 
 
 	@SubscribeEvent
-	public static void onKeyInput(InputEvent.KeyInputEvent event) {
+	public static void onKeyInput(InputEvent.KeyInputEvent Event) {
 		
 		PlayerList players = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList();
-		
+	
 		
 	
 		EntityPlayer player = Minecraft.getMinecraft().player;
@@ -76,6 +149,7 @@ public class EventHandler {
 		boolean space = Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown();
 		boolean ability1 = KeyBindings.ability1.isKeyDown();
 		boolean ability2 = KeyBindings.ability2.isKeyDown();
+	
 		
 		
 		
@@ -83,31 +157,29 @@ public class EventHandler {
 		//EntityPlayerRPG playerRPG = (EntityPlayerRPG) playerMP;
 		
 
+	
+		//System.out.println(mana.getMana());
 		
-		
-		System.out.println(player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass());
-		if(player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == "Warrior") {
+
+		//if(player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == 1) {
 			
 		
-		if (ability1) {
+		if (ability1 && ability1Unclicked) {
 			
 		
 		
 		NetworkHandler.sendToServer(new MessageExplode(3, false));
-			
-			
 		Log.info("Ability 1 used");
+		//ability1 = false;
+		ability1Unclicked = false;
+		
 		 }
 		
-		if (ability2) {
 		
+		//}
+		//else if (player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == 2) {
 			
-		Log.info("Ability 2 used");	
-		}
-		
-		}
-		else if (player.hasCapability(RPGProvider.CAPABILTIY_RPG, null) && player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass() == "Rogue") {
-			
+		/*
 			if (ability1) {
 				
 				
@@ -119,13 +191,13 @@ public class EventHandler {
 					List<Entity> entities = Minecraft.getMinecraft().world.getEntitiesWithinAABBExcludingEntity(player, player.getEntityBoundingBox().expand(5.0D, 5.0D, 5.0D));
 					NetworkHandler.sendToServer(new MessageInvisibilityEffect(true));	
 					
-					/*for(Entity entity: entities) {
+					for(Entity entity: entities) {
 						Log.info(entity);
 						Log.info(playerMP.getName());
 						//entity.removeTrackingPlayer(playerMP);
 						entity.setDead();
 						
-					}*/
+					}
 				
 					
 					Log.info("Ability 1 used");
@@ -133,10 +205,10 @@ public class EventHandler {
 				else {
 					NetworkHandler.sendToServer(new MessageInvisibilityEffect(false));	
 					player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 10, 1);
-				}
-				 }
+				} 
+				 } */
 				
-				if (ability2) {
+				if (ability2 && ability2Unclicked) {
 				
 					if (!isSpeed) {
 						
@@ -152,6 +224,7 @@ public class EventHandler {
 
 				
 					Log.info("Ability 2 used");	
+					ability2Unclicked = false;
 				}
 			
 			
@@ -160,7 +233,7 @@ public class EventHandler {
 		
 		
 		
-	}
+	//}
 	
 	
 	@SubscribeEvent
@@ -178,28 +251,7 @@ public class EventHandler {
 	
 	 
 	
-	/*
-	@SubscribeEvent
-    public void onPlayerLogsIn(PlayerLoggedInEvent event)
-    {
-        EntityPlayer player = event.player;
-        IRPG rpg = player.getCapability(RPGProvider.CAPABILTIY_RPG, null);
-
-       
-    }
 	
-	 @SubscribeEvent
-	    public void onPlayerClone(PlayerEvent.Clone event)
-	    {
-	        EntityPlayer player = event.getEntityPlayer();
-	        IRPG rpg = player.getCapability(RPGProvider.CAPABILTIY_RPG, null);
-	        IRPG oldRpg = event.getOriginal().getCapability(RPGProvider.CAPABILTIY_RPG, null);
-
-	        rpg.setPlayerClass(oldRpg.getPlayerClass());
-	    }
-	 
-	 */
-	   
 	
 	
 }

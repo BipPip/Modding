@@ -3,7 +3,7 @@
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList/>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_-fXCAULZEemM3dd6tC5MRg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_-1Y8YkLZEemM3dd6tC5MRg" label="%trimmedwindow.label.eclipseSDK" x="-1773" y="315" width="1024" height="646">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_-fXCAULZEemM3dd6tC5MRg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_-1Y8YkLZEemM3dd6tC5MRg" label="%trimmedwindow.label.eclipseSDK" x="359" y="-8" width="1024" height="646">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -347,7 +347,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_-3ZukELZEemM3dd6tC5MRg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6M9nYEOXEemNtu59qy9x9w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_-fwq8ULZEemM3dd6tC5MRg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_RqrFMOygEem1VJLXLZ8t-A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_-fwq8ULZEemM3dd6tC5MRg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_-3ZukULZEemM3dd6tC5MRg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -375,7 +375,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_-3aVokLZEemM3dd6tC5MRg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6NAqsEOXEemNtu59qy9x9w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_-fwqqELZEemM3dd6tC5MRg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_RqthcOygEem1VJLXLZ8t-A" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_-fwqqELZEemM3dd6tC5MRg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_-3aVo0LZEemM3dd6tC5MRg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -672,7 +672,6 @@
     <bindings xmi:id="_-gXHo0LZEemM3dd6tC5MRg" keySequence="CTRL+F9" command="_-ftnUULZEemM3dd6tC5MRg"/>
     <bindings xmi:id="_-gXHp0LZEemM3dd6tC5MRg" keySequence="CTRL+F11" command="_-fxRtELZEemM3dd6tC5MRg"/>
     <bindings xmi:id="_-gXHqELZEemM3dd6tC5MRg" keySequence="CTRL+F12" command="_-ftAi0LZEemM3dd6tC5MRg"/>
-    <bindings xmi:id="_h1BycEMDEemjSfxwDEcdjw" keySequence="ALT+SHIFT+Q N" command="_h0N6IkMDEemjSfxwDEcdjw"/>
   </bindingTables>
   <bindingTables xmi:id="_-gMviELZEemM3dd6tC5MRg" elementId="org.eclipse.ant.ui.AntEditorScope" bindingContext="_-f08MkLZEemM3dd6tC5MRg">
     <bindings xmi:id="_-gMviULZEemM3dd6tC5MRg" keySequence="F3" command="_-fsZQ0LZEemM3dd6tC5MRg"/>
@@ -752,6 +751,8 @@
     <bindings xmi:id="_-gPL00LZEemM3dd6tC5MRg" keySequence="ALT+SHIFT+1" command="_-fwDrULZEemM3dd6tC5MRg"/>
     <bindings xmi:id="_-gVScULZEemM3dd6tC5MRg" keySequence="CTRL+ARROW_UP" command="_-fxRy0LZEemM3dd6tC5MRg"/>
     <bindings xmi:id="_-gV5cULZEemM3dd6tC5MRg" keySequence="CTRL+ARROW_DOWN" command="_-fvcikLZEemM3dd6tC5MRg"/>
+    <bindings xmi:id="_g38ekOsJEemsu76H6Xnzww" keySequence="CTRL+BS" command="_g3hAwesJEemsu76H6Xnzww"/>
+    <bindings xmi:id="_g4Ir0OsJEemsu76H6Xnzww" keySequence="CTRL+DEL" command="_g3hAwusJEemsu76H6Xnzww"/>
   </bindingTables>
   <bindingTables xmi:id="_-gOkvELZEemM3dd6tC5MRg" elementId="org.eclipse.jdt.ui.propertiesEditorScope" bindingContext="_-f08OELZEemM3dd6tC5MRg">
     <bindings xmi:id="_-gOkvULZEemM3dd6tC5MRg" keySequence="CTRL+/" command="_-fvcokLZEemM3dd6tC5MRg"/>
@@ -844,10 +845,7 @@
   <bindingTables xmi:id="__Dcmg0LZEemM3dd6tC5MRg" bindingContext="__DcmgkLZEemM3dd6tC5MRg"/>
   <bindingTables xmi:id="__DcmhULZEemM3dd6tC5MRg" bindingContext="__DcmhELZEemM3dd6tC5MRg"/>
   <bindingTables xmi:id="__Dcmh0LZEemM3dd6tC5MRg" bindingContext="__DcmhkLZEemM3dd6tC5MRg"/>
-  <bindingTables xmi:id="_h04BcEMDEemjSfxwDEcdjw" elementId="org.sweetlemonade.eclipse.json.jsonEditorScope" bindingContext="_h0Q9cEMDEemjSfxwDEcdjw">
-    <bindings xmi:id="_h09hAEMDEemjSfxwDEcdjw" keySequence="CTRL+O" command="_h0N6IUMDEemjSfxwDEcdjw"/>
-    <bindings xmi:id="_h0_WMEMDEemjSfxwDEcdjw" keySequence="CTRL+SHIFT+F" command="_h0OhMEMDEemjSfxwDEcdjw"/>
-  </bindingTables>
+  <bindingTables xmi:id="_h04BcEMDEemjSfxwDEcdjw" elementId="org.sweetlemonade.eclipse.json.jsonEditorScope" bindingContext="_h0Q9cEMDEemjSfxwDEcdjw"/>
   <rootContext xmi:id="_-fXCA0LZEemM3dd6tC5MRg" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_-fXCBELZEemM3dd6tC5MRg" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_-fXCBULZEemM3dd6tC5MRg" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -2357,6 +2355,8 @@
   <commands xmi:id="_h0N6IUMDEemjSfxwDEcdjw" elementId="org.sweetlemonade.eclipse.json.outline" commandName="Quick outline" category="_-frLHELZEemM3dd6tC5MRg"/>
   <commands xmi:id="_h0N6IkMDEemjSfxwDEcdjw" elementId="org.sweetlemonade.eclipse.json.openEditor" commandName="New JSON Editor" category="_-frLGULZEemM3dd6tC5MRg"/>
   <commands xmi:id="_h0OhMEMDEemjSfxwDEcdjw" elementId="org.sweetlemonade.eclipse.json.format" commandName="Format JSON" category="_-frLEkLZEemM3dd6tC5MRg"/>
+  <commands xmi:id="_g3hAwesJEemsu76H6Xnzww" elementId="com.genuitec.eclipse.inlinesearch.delete.previous" commandName="Delete Previous Word" category="_-frLMkLZEemM3dd6tC5MRg"/>
+  <commands xmi:id="_g3hAwusJEemsu76H6Xnzww" elementId="com.genuitec.eclipse.inlinesearch.delete.next" commandName="Delete Next Word" category="_-frLMkLZEemM3dd6tC5MRg"/>
   <addons xmi:id="_-fXCCkLZEemM3dd6tC5MRg" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_-fXCC0LZEemM3dd6tC5MRg" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_-fXCDELZEemM3dd6tC5MRg" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

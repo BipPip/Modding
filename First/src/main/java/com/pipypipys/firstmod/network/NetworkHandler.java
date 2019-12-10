@@ -1,6 +1,5 @@
 package com.pipypipys.firstmod.network;
 
-import com.pipypipys.firstmod.network.messages.MessageCapabilities;
 import com.pipypipys.firstmod.network.messages.MessageExplode;
 import com.pipypipys.firstmod.network.messages.MessageInvisibilityEffect;
 import com.pipypipys.firstmod.network.messages.MessageSpeedEffect;
@@ -19,9 +18,10 @@ public class NetworkHandler {
 		INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID);
 		
 		INSTANCE.registerMessage(MessageExplode.class, MessageExplode.class, 0, Side.SERVER);
-		INSTANCE.registerMessage(MessageInvisibilityEffect.class, MessageInvisibilityEffect.class, 1, Side.SERVER);
+		//INSTANCE.registerMessage(MessageInvisibilityEffect.class, MessageInvisibilityEffect.class, 1, Side.SERVER);
 		INSTANCE.registerMessage(MessageSpeedEffect.class, MessageSpeedEffect.class, 2, Side.SERVER);
-		INSTANCE.registerMessage(MessageCapabilities.class, MessageCapabilities.class, 3, Side.SERVER);
+		//INSTANCE.registerMessage(MessageManaUpdate.class, MessageManaUpdate.class, 3, Side.SERVER);
+		//INSTANCE.registerMessage(MessageCapabilities.class, MessageCapabilities.class, 3, Side.SERVER);
 		
 	}
 	

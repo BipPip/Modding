@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pipypipys.firstmod.blocks.BlockBase;
+import com.pipypipys.firstmod.blocks.BlockInfiniteChest;
 import com.pipypipys.firstmod.blocks.KoichiBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -21,4 +23,7 @@ public class ModBlocks {
 	public static final Block JOSUKE_BLOCK = new BlockBase("josuke_block", Material.CLAY, CreativeTabs.BUILDING_BLOCKS);
 	
 	public static final Block KOICHI_BLOCK = new KoichiBlock("koichi_block", Material.CLAY, CreativeTabs.BUILDING_BLOCKS);
+	
+	public static final Block INFINITE_CHEST_BLOCK = new BlockInfiniteChest("infinite_chest_block", CreativeTabs.DECORATIONS, BlockChest.Type.BASIC);
+	
 }

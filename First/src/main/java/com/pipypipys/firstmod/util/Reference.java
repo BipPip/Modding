@@ -19,6 +19,7 @@ public class Reference {
 	public static final int ENTITY_GIO_ZOMBIE = 300;
 	public static final int ENTITY_TURTLE = 301;
 	public static final int ENTITY_RAT = 302;
+	public static final int ENTITY_FROG = 303;
 	
 	//Key Bindings
 	
@@ -31,6 +32,7 @@ public class Reference {
 	
 	//Mod Settings
 	//public static String player_class;
+	public static double mana;
 	
 	
 } 

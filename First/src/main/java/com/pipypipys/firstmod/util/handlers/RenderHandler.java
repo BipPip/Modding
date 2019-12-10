@@ -1,8 +1,10 @@
 package com.pipypipys.firstmod.util.handlers;
 
+import com.pipypipys.firstmod.entity.EntityFrog;
 import com.pipypipys.firstmod.entity.EntityGioZombie;
 import com.pipypipys.firstmod.entity.EntityRat;
 import com.pipypipys.firstmod.entity.EntityTurtle;
+import com.pipypipys.firstmod.entity.render.RenderFrog;
 import com.pipypipys.firstmod.entity.render.RenderGioZombie;
 import com.pipypipys.firstmod.entity.render.RenderRat;
 import com.pipypipys.firstmod.entity.render.RenderTurtle;
@@ -36,6 +38,13 @@ public class RenderHandler {
 			public Render<? super EntityRat> createRenderFor(RenderManager manager) {
 				// TODO Auto-generated method stub
 				return new RenderRat(manager);
+			}
+		});
+		RenderingRegistry.registerEntityRenderingHandler(EntityFrog.class, new IRenderFactory<EntityFrog>() {
+			@Override
+			public Render<? super EntityFrog> createRenderFor(RenderManager manager) {
+				// TODO Auto-generated method stub
+				return new RenderFrog(manager);
 			}
 		});
 		

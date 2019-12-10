@@ -1,9 +1,18 @@
 package com.pipypipys.firstmod.network.messages;
 
+import org.jline.utils.Log;
+
+import com.pipypipys.firstmod.client.gui.GuiMana;
 import com.pipypipys.firstmod.network.MessageBase;
+import com.pipypipys.firstmod.network.NetworkHandler;
+import com.pipypipys.firstmod.util.Reference;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.MoverType;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.text.TextComponentString;
 
 public class MessageExplode extends MessageBase<MessageExplode> {
 
@@ -52,8 +61,22 @@ public class MessageExplode extends MessageBase<MessageExplode> {
 		 * If using this in a scenario like if you were to have a block explode when clicked, you have to make sure only the server is doing the explosion.
 		 * To do this do if(world.isRemote) to prevent it form happening on the clientside
 		 */
-		player.world.createExplosion(player, player.posX, player.posY, player.posZ, message.explosionSize, message.breakblocks);
 		
+		if ((player.getEntityData().getDouble("mana") - 20) < 0) {
+			player.sendMessage(new TextComponentString("You do not have enough mana"));
+			
+		}
+		else {
+		
+			
+
+		player.world.createExplosion(player, player.posX, player.posY, player.posZ, message.explosionSize, message.breakblocks);
+		player.getEntityData().setDouble("mana", (player.getEntityData().getDouble("mana") - 20));
+		Reference.mana = player.getEntityData().getDouble("mana");
+		//player.sendMessage(new TextComponentString("You have " + player.getEntityData().getDouble("mana") + "  mana left"));
+	
+		
+		}
 		
 	}
 

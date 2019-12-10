@@ -55,7 +55,7 @@ public class KeyBindings {
 
 	  ability2 = new KeyBinding("key.firstMod.ability2", Keyboard.KEY_NUMPAD1, "key.categories.firstMod");
 
-
+	  
 
       // Register both KeyBindings to the ClientRegistry
 

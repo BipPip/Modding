@@ -10,10 +10,12 @@ public class SoundsHandler {
 
 	
 	public static SoundEvent ENTITY_RAT_HURT;
+	public static SoundEvent ENTITY_FROG_CROAK;
 	
 	public static void registerSounds() {
 		
 		ENTITY_RAT_HURT = registerSound("entity.rat.hurt");
+		ENTITY_FROG_CROAK = registerSound("entity.frog.croak");
 		
 		
 		

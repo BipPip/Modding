@@ -86,6 +86,7 @@ public class MessageInvisibilityEffect extends MessageBase<MessageInvisibilityEf
 		
 		if(message.add) {
 		
+	
 		player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 300, 0));
 		//player.capabilities.disableDamage = true;
 		

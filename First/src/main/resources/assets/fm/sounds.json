@@ -11,6 +11,13 @@
         "category": "entity",
         "subtitle": "entity.rat.death",
         "sounds": [{"name": "fm:entity/rat/death", "stream": true}]
+    },
+    
+    "entity.frog.croak":
+    {
+        "category": "entity",
+        "subtitle": "entity.frog.croak",
+        "sounds": [{"name": "fm:entity/frog/croak", "stream": true}]
     }
     
 }

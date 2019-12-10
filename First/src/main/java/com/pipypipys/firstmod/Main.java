@@ -2,17 +2,21 @@ package com.pipypipys.firstmod;
 
 import org.lwjgl.opengl.GL11;
 
-import com.pipypipys.firstmod.capabilities.CapabilityHandler;
-import com.pipypipys.firstmod.commands.ChangeClassCommand;
-import com.pipypipys.firstmod.init.ModCapabilities;
+
+//import com.pipypipys.firstmod.commands.ChangeClassCommand;
+
 import com.pipypipys.firstmod.network.NetworkHandler;
 import com.pipypipys.firstmod.proxy.CommonProxy;
 import com.pipypipys.firstmod.util.KeyBindings;
 import com.pipypipys.firstmod.util.Reference;
 import com.pipypipys.firstmod.util.handlers.RegistryHandler;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -38,7 +42,7 @@ public class Main {
 		 proxy.preInit();
 		 NetworkHandler.init();
 		 
-		 ModCapabilities.registerCapabilities();
+		
 	}
 	
 	@EventHandler
@@ -50,8 +54,9 @@ public class Main {
 	 @EventHandler
 	 public static void postInit(FMLPostInitializationEvent event) {
 		 
+		 proxy.postInit();
 		 //MinecraftForge.EVENT_BUS.register(new EventHandler());
-		 MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+		 //MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		 RegistryHandler.postInitRegistries();
 		 
 		 
@@ -61,13 +66,13 @@ public class Main {
 	 @EventHandler
 	 public void serverLoad(FMLServerStartingEvent event) {
 		 // Commands
-		 event.registerServerCommand(new ChangeClassCommand());
+		 //event.registerServerCommand(new ChangeClassCommand());
 		 
 	 }
 	 
 	 
 	 
-	 
+	
 	 
 	 
 	 

@@ -1,4 +1,4 @@
-package com.pipypipys.firstmod.commands;
+/*package com.pipypipys.firstmod.commands;
 
 import com.pipypipys.firstmod.capabilities.CapabilityHandler;
 import com.pipypipys.firstmod.capabilities.RPGProvider;
@@ -23,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import scala.Int;
 
 public class ChangeClassCommand implements ICommand {
 
@@ -59,20 +60,36 @@ public class ChangeClassCommand implements ICommand {
 		if(sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 			
-			
-			
-			if(!args[0].isEmpty() || args[0] == "Warrior" || args[0] == "Rogue" || args[0] == "Mage") {
+			System.out.println("test1: " + args[0]);		
+				
+			//!args[0].isEmpty() || 
+			int playerClassInt = 0;
+			if(args[0].equals("Warrior") || args[0].equals("Rogue") || args[0].equals("Mage")) {
+				
+				
+				if(args[0].equals("Warrior")) {
+					playerClassInt = 1;
+				}
+				else if (args[0].equals("Rogue")) {
+					playerClassInt = 2;
+				}
+				else if (args[0].equals("Mage")) {
+					playerClassInt = 3;
+				}
+				
 				
 				// Not used
 				ICapabilityProvider playerProvider = (ICapabilityProvider) player;
 				RPGProvider playerRPG = new RPGProvider();
 				
 				
-	
-				player.getCapability(RPGProvider.CAPABILTIY_RPG, null).setPlayerClass(args[0]);
-				NetworkHandler.sendToServer(new MessageCapabilities(player.getCapability(RPGProvider.CAPABILTIY_RPG, null)));	
+				
+						
+				System.out.println("test2: " + playerClassInt);
+				//player.getCapability(RPGProvider.RPG, null).setPlayerClass(playerClassInt);
+				//NetworkHandler.sendToServer(new MessageCapabilities(player.getCapability(RPGProvider.CAPABILTIY_RPG, null)));	
 			
-				player.sendMessage(new TextComponentString(player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass()));
+				//player.sendMessage(new TextComponentString(Integer.toString(player.getCapability(RPGProvider.CAPABILTIY_RPG, null).getPlayerClass())));
 				
 				//player.sendMessage(new TextComponentString(Boolean.toString(player.hasCapability(RPGProvider.CAPABILTIY_RPG, null))));
 				
@@ -112,3 +129,4 @@ public class ChangeClassCommand implements ICommand {
 	}
 
 }
+*/
